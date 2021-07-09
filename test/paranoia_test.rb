@@ -1001,7 +1001,7 @@ class ParanoiaTest < test_framework
     assert notParanoidModel.valid?
     parentModel.destroy
     assert !notParanoidModel.valid?
-    assert notParanoidModel.errors.full_messages.include? "Parent model has been soft-deleted"
+    assert notParanoidModel.errors.added?(:parent_model, :soft_deleted)
   end
 
   # TODO: find a fix for Rails 4.1
