@@ -230,7 +230,7 @@ module Paranoia
       end
     end
 
-    clear_association_cache if destroyed_associations.present?
+    @association_cache.clear if persisted? && destroyed_associations.present?
   end
 end
 
